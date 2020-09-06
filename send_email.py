@@ -29,7 +29,7 @@ for k in range(sheet.nrows-1):
 
 # Start sending email process
 email = 'myEmail@gmail.com' # sender email
-password = 'none' # This is an app password so you dont have to put the original password.You can create a password for gmail. Just go to Security section in Gmail/Apps passwords
+password = 'none' # This is an app password so you dont have to put the original password. It is in the security section in Gmail/Apps passwords
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 server.login(email, password)
@@ -40,7 +40,7 @@ for mail_to in mail_list:
     clientName = name[nro_des] 
     subject = f'{clientName} you have a new email'
     message = f'Dear {clientName}: \n' \
-              f'We inform you that on the day of the date you owe ${amount[nro_des]} \n'\
+              f'We inform you that you owe ${amount[nro_des]} \n'\
               '\n' \
               'Regards' 
               
