@@ -8,13 +8,13 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-class read_and_send_email():
+class ReadAndSendEmail():
 
     def __init__(self,path,sheet):
         self.path = path
         self.sheet = sheet
 
-    def read_excel_file(self):
+    def read(self):
         # This excel files has information about clients. (Name,email, city, paid, ammount)
         # path = "clients_status.xlsx"
         openFile = xlrd.open_workbook(self.path)
@@ -44,7 +44,7 @@ class read_and_send_email():
         server.starttls()
         server.login(email, password)
 
-        values = read_and_send_email.read_excel_file()
+        values = ReadAndSendEmail.read()
         mail_list = values[0]
         ammount = values[1]
         name = values[2]
@@ -74,7 +74,7 @@ class read_and_send_email():
 
 
 def main():
-    read_and_send_email("clients_status.xlsx","datos").send_email()
+    ReadAndSendEmail("clients_status.xlsx","datos").send_email()
 
 if __name__ == "__main__":
     main()
